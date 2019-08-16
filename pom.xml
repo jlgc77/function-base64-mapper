@@ -1,8 +1,54 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>io.wizzie.normalizer</groupId>
-  <artifactId>function-base64-mapper</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Function Base64Mapper</name>
-  <description>Function to map to base64</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.wizzie.normalizer</groupId>
+	<artifactId>function-base64-mapper</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Function Base64Mapper</name>
+	<description>Function to map to base64</description>
+
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<precondition.version>0.1.5</precondition.version>
+		<kafka.version>2.1.0</kafka.version>
+		<metrics-library.version>0.0.7</metrics-library.version>
+		<config-bootstrapper.version>0.0.10</config-bootstrapper.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+			<version>${kafka.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.wizzie.metrics</groupId>
+			<artifactId>metrics-library</artifactId>
+			<version>${metrics-library.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cookingfox</groupId>
+			<artifactId>guava-preconditions</artifactId>
+			<version>${precondition.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.wizzie</groupId>
+			<artifactId>config-bootstrapper</artifactId>
+			<version>${config-bootstrapper.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.kafka</groupId>
+					<artifactId>kafka_2.12</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
 </project>
