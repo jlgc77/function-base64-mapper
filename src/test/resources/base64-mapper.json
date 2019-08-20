@@ -1,0 +1,21 @@
+{
+  "inputs":{
+    "input1":["myStream"]
+  },
+  "streams":{
+    "myStream":{
+      "funcs":[
+        {
+          "name":"myBase64Mapper",
+          "className":"io.wizzie.normalizer.funcs.impl.Base64Mapper",
+          "properties": {
+            "dimension": "mac"
+          }
+        }
+      ],
+      "sinks":[
+        {"topic":"output1"}
+      ]
+    }
+  }
+}
